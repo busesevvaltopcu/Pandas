@@ -25,10 +25,10 @@ df["embarked"] = df["embarked"].astype("category")
 df["embarked"].dtype
 df.info()
 
-# embarked değeri C olanların tüm bilgelerini gösteriniz.
+# embarked değeri C olanların tüm bilgilerini gösteriniz.
 df[df["embarked"] == "C"].head(10)
 
-# embarked değeri S olmayanların tüm bilgelerini gösteriniz
+# embarked değeri S olmayanların tüm bilgilerini gösteriniz.
 df[df["embarked"] != "S"].head(10)
 
 # Yaşı 30 dan küçük ve kadın olan yolcuların tüm bilgilerini gösteriniz.
@@ -43,14 +43,14 @@ df.isnull().sum()
 # who değişkenini dataframe'den düşürün.
 df.drop("who", axis=1, inplace=True)
 
-# deck değikenindeki boş değerleri deck değişkenin en çok tekrar eden değeri (mode) ile doldurunuz.
+# deck değikenindeki boş değerleri deck değişkeninin en çok tekrar eden değeri (mode) ile doldurunuz.
 type(df["deck"].mode())
 df["deck"].mode()[0]
 df["deck"].fillna(df["deck"].mode()[0], inplace=True)
 df["deck"].isnull().sum()
 
 
-# age değikenindeki boş değerleri age değişkenin medyanı ile doldurun.
+# age değişkenindeki boş değerleri age değişkeninin medyanı ile doldurun.
 df["age"].fillna(df["age"].median(),inplace=True)
 df.isnull().sum()
 
@@ -72,7 +72,7 @@ df["age_flag"] = df["age"].apply(lambda x : age_30(x))
 df["age_flag"] = df["age"].apply(lambda x: 1 if x<30 else 0)
 
 
-# Seaborn kütüphanesi içerisinden Tips veri setini tanımlayınız.
+# Seaborn kütüphanesi içinden Tips verisetini tanımlayınız.
 df = sns.load_dataset("tips")
 df.head()
 df.shape
